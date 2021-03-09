@@ -1,0 +1,16 @@
+@HOST=http://localhost:3333
+
+###
+
+GET {{HOST}}/transactions
+
+###
+
+POST {{HOST}}/transactions
+Content-Type: application/json
+
+{
+  "title": "Cartão Crédito",
+  "value": 3955.66,
+  "type": "outcome"
+}
