@@ -24,14 +24,13 @@ transactionRouter.post('/', (request, response) => {
   try {
     const { title, value, type } = request.body;
     const parsedValue = Number(value);
-    const parsedType = type === 'income' ? type : 'outcome';
     const createTransactionService = new CreateTransactionService(
       transactionsRepository,
     );
     const transaction = createTransactionService.execute({
       title,
       value: parsedValue,
-      type: parsedType,
+      type,
     });
     return response.json(transaction);
   } catch (err) {
